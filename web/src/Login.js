@@ -4,14 +4,31 @@ import {useState} from "react";
 function Login(){
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
   const login = async() => {
+    setMessage("");
+
+    if (!email || !password) {
+      setMessage("All fields are required.");
+      return;
+    }
+
     try {
-      const res = await axios.post("http://localhost:8080/api/auth/login", {email, password});
+      const res = await axios.post("http://localhost:8080/api/auth/login", {
+        email: email,
+        password: password
+      });
+      
+      if (!res.data) {
+        setMessage("Invalid credentials.");
+        return;
+      }
+      
       localStorage.setItem("token", res.data);
       window.location = "/dashboard";
     } catch(err) { 
-      alert("Invalid credentials. Please try again."); 
+      setMessage("Invalid credentials."); 
     }
   };
 
@@ -20,12 +37,14 @@ function Login(){
       <div className="auth-container">
         <div className="auth-left">
           <h1>Welcome to Mini App</h1>
-          <p>Securely manage your account with our platform. Access all features and get started.</p>
+          <p>Login to access your account and manage your profile.</p>
         </div>
         <div className="auth-right">
           <div className="auth-box">
             <h2>Login</h2>
             <p className="subtitle">Enter your email and password to login</p>
+            
+            {message && <p style={{color: '#dc143c', marginBottom: '15px', fontSize: '14px'}}>{message}</p>}
             
             <label>Email</label>
             <input 
