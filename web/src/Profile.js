@@ -14,6 +14,7 @@ function Profile(){
       }
       
       try {
+        // GET /api/auth/me returns UserResponseDTO (matches sequence diagram)
         const res = await axios.get("http://localhost:8080/api/auth/me", {
           headers: { Authorization: `Bearer ${token}` }
         });
@@ -29,8 +30,8 @@ function Profile(){
   }, []);
 
   const getInitials = () => {
-    if (!user.first_name || !user.last_name) return "U";
-    return user.first_name[0].toUpperCase() + user.last_name[0].toUpperCase();
+    if (!user.firstName || !user.lastName) return "U";
+    return user.firstName[0].toUpperCase() + user.lastName[0].toUpperCase();
   };
 
   if (loading) {
@@ -52,7 +53,7 @@ function Profile(){
         <div className="profile-card">
           <div className="profile-header">
             <div className="profile-avatar">{getInitials()}</div>
-            <h2>{user.first_name} {user.last_name}</h2>
+            <h2>{user.firstName} {user.lastName}</h2>
             <p>@{user.username}</p>
           </div>
           
@@ -61,7 +62,7 @@ function Profile(){
               <h3>Account Information</h3>
               <div className="info-row">
                 <div className="info-label">Full Name</div>
-                <div className="info-value">{user.first_name} {user.last_name}</div>
+                <div className="info-value">{user.firstName} {user.lastName}</div>
               </div>
               <div className="info-row">
                 <div className="info-label">Username</div>
@@ -69,7 +70,17 @@ function Profile(){
               </div>
               <div className="info-row">
                 <div className="info-label">Email Address</div>
-                <div className="info-value">{user.email_address}</div>
+                <div className="info-value">{user.emailAddress}</div>
+              </div>
+              <div className="info-row">
+                <div className="info-label">Member Since</div>
+                <div className="info-value">
+                  {new Date(user.createdAt).toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                  })}
+                </div>
               </div>
             </div>
             

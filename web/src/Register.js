@@ -3,26 +3,27 @@ import axios from "axios";
 
 function Register() {
   const [form, setForm] = useState({
-    first_name: "",
-    last_name: "",
+    firstName: "",
+    lastName: "",
     username: "",
-    email_address: "",
+    emailAddress: "",
     password: "",
-    confirm_password: ""
+    confirmPassword: ""
   });
   const [message, setMessage] = useState("");
 
   const submit = async () => {
     setMessage("");
 
-    if (!form.first_name || !form.last_name || !form.username || 
-        !form.email_address || !form.password || !form.confirm_password) {
+    // Frontend validation
+    if (!form.firstName || !form.lastName || !form.username || 
+        !form.emailAddress || !form.password || !form.confirmPassword) {
       setMessage("All fields are required.");
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(form.email_address)) {
+    if (!emailRegex.test(form.emailAddress)) {
       setMessage("Invalid email format.");
       return;
     }
@@ -32,17 +33,18 @@ function Register() {
       return;
     }
 
-    if (form.password !== form.confirm_password) {
+    if (form.password !== form.confirmPassword) {
       setMessage("Passwords do not match.");
       return;
     }
 
     try {
+      // Send RegisterDTO to backend (matches sequence diagram)
       await axios.post("http://localhost:8080/api/auth/register", {
-        first_name: form.first_name,
-        last_name: form.last_name,
+        firstName: form.firstName,
+        lastName: form.lastName,
         username: form.username,
-        email_address: form.email_address,
+        emailAddress: form.emailAddress,
         password: form.password
       });
       
@@ -74,15 +76,15 @@ function Register() {
             <label>First Name</label>
             <input 
               placeholder="John" 
-              value={form.first_name}
-              onChange={(e) => setForm({ ...form, first_name: e.target.value })} 
+              value={form.firstName}
+              onChange={(e) => setForm({ ...form, firstName: e.target.value })} 
             />
             
             <label>Last Name</label>
             <input 
               placeholder="Doe" 
-              value={form.last_name}
-              onChange={(e) => setForm({ ...form, last_name: e.target.value })} 
+              value={form.lastName}
+              onChange={(e) => setForm({ ...form, lastName: e.target.value })} 
             />
             
             <label>Username</label>
@@ -96,8 +98,8 @@ function Register() {
             <input 
               type="email"
               placeholder="name@example.com" 
-              value={form.email_address}
-              onChange={(e) => setForm({ ...form, email_address: e.target.value })} 
+              value={form.emailAddress}
+              onChange={(e) => setForm({ ...form, emailAddress: e.target.value })} 
             />
             
             <label>Password</label>
@@ -112,8 +114,8 @@ function Register() {
             <input 
               type="password" 
               placeholder="Re-enter your password" 
-              value={form.confirm_password}
-              onChange={(e) => setForm({ ...form, confirm_password: e.target.value })} 
+              value={form.confirmPassword}
+              onChange={(e) => setForm({ ...form, confirmPassword: e.target.value })} 
             />
             
             <button onClick={submit}>Register</button>

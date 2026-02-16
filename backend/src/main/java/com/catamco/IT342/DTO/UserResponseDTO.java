@@ -1,44 +1,24 @@
-package com.catamco.IT342.Entity;
+package com.catamco.IT342.DTO;
 
-import jakarta.persistence.*;
 import java.util.Date;
 
-@Entity
-@Table(name = "users")
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+public class UserResponseDTO {
     private int userId;
-
-    @Column(name = "first_name", nullable = false)
     private String firstName;
-
-    @Column(name = "last_name", nullable = false)
     private String lastName;
-
-    @Column(name = "username", unique = true, nullable = false)
     private String username;
-
-    @Column(name = "email_address", unique = true, nullable = false)
     private String emailAddress;
+    private Date createdAt;
 
-    @Column(name = "password", nullable = false)
-    private String password;
+    public UserResponseDTO() {}
 
-    @Column(name = "created_at")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt = new Date();
-
-    public User() {}
-
-    public User(String firstName, String lastName, String username, String emailAddress, String password) {
+    public UserResponseDTO(int userId, String firstName, String lastName, String username, String emailAddress, Date createdAt) {
+        this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.emailAddress = emailAddress;
-        this.password = password;
-        this.createdAt = new Date();
+        this.createdAt = createdAt;
     }
 
     public int getUserId() {
@@ -79,14 +59,6 @@ public class User {
 
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public Date getCreatedAt() {

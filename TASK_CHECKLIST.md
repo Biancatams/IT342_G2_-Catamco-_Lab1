@@ -1,6 +1,6 @@
-# Task Checklist - Lab 2
+# Task Checklist - Lab 2 & Lab 3
 
-## DONE
+## DONE - Lab 2
 - [x] Set up folder structure (`/web`, `/backend`, `/docs`) - commit: 703a004
 - [x] Create README.md - commit: 703a004
 - [x] Initialize Git repository - commit: 15a18e9
@@ -18,5 +18,25 @@
   - [x] Logout functionality - commit: b3ecc3b
 - [x] Update /docs FRS PDF with screenshots - commit: b3ecc3b
 
-## TODO
-- [ ] Mobile application (Lab 3)
+## DONE - Lab 2 Revisions (Code-Diagram Alignment)
+- [x] Created DTO classes (RegisterDTO, LoginDTO, UserResponseDTO) - commit: c996f09
+- [x] Updated User entity fields to camelCase with @Column mappings - commit: c996f09
+- [x] Renamed AuthRepository to UserRepository - commit: c996f09
+- [x] Renamed UserService to AuthService - commit: c996f09
+- [x] Created PasswordEncoder as separate component - commit: c996f09
+- [x] Updated AuthController to use DTOs and ResponseEntity - commit: c996f09
+- [x] Updated AuthService methods to use DTOs - commit: c996f09
+- [x] Updated frontend (Register, Login, Profile) to use camelCase - commit: c996f09
+- [x] Updated Class Diagram with all DTOs and SecurityConfig - commit: c996f09
+- [x] Added web UI screenshots to documentation - commit: c996f09
+
+## TODO - Lab 3
+- [ ] Mobile application (Android Kotlin)
+  - [ ] Register screen
+  - [ ] Login screen
+  - [ ] Dashboard screen
+  - [ ] Profile screen (protected)
+  - [ ] Logout functionality
+  - [ ] Connect to backend API
+- [ ] Add mobile UI screenshots to FRS PDF
+- [ ] Final documentation update
