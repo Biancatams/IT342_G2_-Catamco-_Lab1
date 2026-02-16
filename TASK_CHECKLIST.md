@@ -30,13 +30,12 @@
 - [x] Updated Class Diagram with all DTOs and SecurityConfig - commit: c996f09
 - [x] Added web UI screenshots to documentation - commit: c996f09
 
-## TODO - Lab 3
-- [ ] Mobile application (Android Kotlin)
-  - [ ] Register screen
-  - [ ] Login screen
-  - [ ] Dashboard screen
-  - [ ] Profile screen (protected)
-  - [ ] Logout functionality
-  - [ ] Connect to backend API
-- [ ] Add mobile UI screenshots to FRS PDF
-- [ ] Final documentation update
+## DONE - Lab 3
+- [x] Mobile application (Android Kotlin) - commit: de80e96
+  - [x] Register screen - commit: de80e96
+  - [x] Login screen - commit: de80e96
+  - [x] Dashboard screen - commit: de80e96
+  - [x] Profile screen (protected) - commit: de80e96
+  - [x] Logout functionality - commit: de80e96
+  - [x] Connect to backend API - commit: de80e96
+- [x] Update FRS PDF with mobile details - commit: 038baef
