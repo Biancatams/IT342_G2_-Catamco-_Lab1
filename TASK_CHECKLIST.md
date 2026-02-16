@@ -19,16 +19,16 @@
 - [x] Update /docs FRS PDF with screenshots - commit: b3ecc3b
 
 ## DONE - Lab 2 Revisions (Code-Diagram Alignment)
-- [x] Created DTO classes (RegisterDTO, LoginDTO, UserResponseDTO) - commit: PENDING
-- [x] Updated User entity fields to camelCase with @Column mappings - commit: PENDING
-- [x] Renamed AuthRepository to UserRepository - commit: PENDING
-- [x] Renamed UserService to AuthService - commit: PENDING
-- [x] Created PasswordEncoder as separate component - commit: PENDING
-- [x] Updated AuthController to use DTOs and ResponseEntity - commit: PENDING
-- [x] Updated AuthService methods to use DTOs - commit: PENDING
-- [x] Updated frontend (Register, Login, Profile) to use camelCase - commit: PENDING
-- [x] Updated Class Diagram with all DTOs and SecurityConfig - commit: PENDING
-- [x] Added web UI screenshots to documentation - commit: PENDING
+- [x] Created DTO classes (RegisterDTO, LoginDTO, UserResponseDTO) - commit: c996f09
+- [x] Updated User entity fields to camelCase with @Column mappings - commit: c996f09
+- [x] Renamed AuthRepository to UserRepository - commit: c996f09
+- [x] Renamed UserService to AuthService - commit: c996f09
+- [x] Created PasswordEncoder as separate component - commit: c996f09
+- [x] Updated AuthController to use DTOs and ResponseEntity - commit: c996f09
+- [x] Updated AuthService methods to use DTOs - commit: c996f09
+- [x] Updated frontend (Register, Login, Profile) to use camelCase - commit: c996f09
+- [x] Updated Class Diagram with all DTOs and SecurityConfig - commit: c996f09
+- [x] Added web UI screenshots to documentation - commit: c996f09
 
 ## TODO - Lab 3
 - [ ] Mobile application (Android Kotlin)
