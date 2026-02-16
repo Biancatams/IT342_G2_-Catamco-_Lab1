@@ -15,6 +15,7 @@ function Login(){
     }
 
     try {
+      // Send LoginDTO to backend (matches sequence diagram)
       const res = await axios.post("http://localhost:8080/api/auth/login", {
         email: email,
         password: password
@@ -25,10 +26,15 @@ function Login(){
         return;
       }
       
+      // Store JWT token
       localStorage.setItem("token", res.data);
       window.location = "/dashboard";
     } catch(err) { 
-      setMessage("Invalid credentials."); 
+      if (err.response && err.response.status === 401) {
+        setMessage("Invalid credentials.");
+      } else {
+        setMessage("Login failed. Please try again.");
+      }
     }
   };
 
